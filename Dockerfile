@@ -1,14 +1,14 @@
-# Use official OpenJDK 17 image
-FROM openjdk:17-jdk
+# Use official lightweight OpenJDK 17 image
+FROM openjdk:17-slim
 
-# Set working directory
+# Set working directory inside container
 WORKDIR /app
 
-# Copy the jar file (adjust name if needed)
+# Copy the JAR file built by Maven (adjust if JAR name is different)
 COPY target/*.jar app.jar
 
-# Expose the port your app runs on (usually 8080)
+# Expose the port the app will run on
 EXPOSE 8080
 
-# Run the app
+# Command to run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
