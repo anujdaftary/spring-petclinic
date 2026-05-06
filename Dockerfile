@@ -4,11 +4,11 @@ FROM openjdk:17-slim
 # Set working directory inside container
 WORKDIR /app
 
-# Copy the JAR file built by Maven (adjust if JAR name is different)
+# Copy Maven-built JAR into container
 COPY target/*.jar app.jar
 
-# Expose the port the app will run on
+# Expose application port
 EXPOSE 8080
 
-# Command to run the application
+# Run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
